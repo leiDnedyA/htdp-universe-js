@@ -6,8 +6,19 @@
          "wrapper-utils/type-conversions.rkt"
          "universe.rkt")
 
-(provide bigBang)
+(provide bigBang
+         toDraw
+         onTick
+         (rename-out [text0 text]))
 
 (define (bigBang init-world handlers)
-  (#js*.console.log (js-list->list handlers))
-  (big-bang init-world (js-list->list handlers)))
+  (define args (append (list init-world) (js-list->list handlers)))
+  (apply big-bang args))
+
+(define (toDraw cb) (to-draw cb))
+(define (onTick cb [rate 28]) (on-tick cb rate))
+
+(define (text0 txt size color)
+  (text (js-string->string txt)
+        size
+        (js-string->string color)))

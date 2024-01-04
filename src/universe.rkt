@@ -268,9 +268,8 @@
             ))
           )
         (#js.conn.on #js"open" on-conn-open)
-        (#js.conn.on #js"close" (λ (_) (
-          ;; TODO: implement disconnect event
-          #js*.console.log #js"conn closed")
+        (#js.conn.on #js"close" (λ (_)
+          (#js*.console.log #js"conn closed")
           (#js*.alert #js"Client has been disconnected by the server or the connection has been lost.")))
         )))]
   ;; cb = (peer: Peer, conn: DataConnection) => void

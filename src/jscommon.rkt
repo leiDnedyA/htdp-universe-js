@@ -72,7 +72,7 @@
 
 (define-syntax-rule (schedule-animation-frame this step)
   (let ([self this])
-    (#js*.window.requestAnimationFrame (λ ()
+    (#js*.window.requestAnimationFrame (λ ([_ $/undefined])
                                          (($ self step))))))
 
 ;;-----------------------------------------------------------------------------
