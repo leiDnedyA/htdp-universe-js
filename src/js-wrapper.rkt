@@ -11,7 +11,6 @@
 
 (provide bigBang)
 
-(define (bigBang init-state handlers [dom-root $/undefined])
+(define (bigBang init-state handlers)
   (#js*.console.log handlers)
-  (if ($/binop === dom-root $/undefined)
-      0 1))
+  10)
