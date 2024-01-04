@@ -3,14 +3,11 @@
 (require (for-syntax racketscript/base
                      syntax/parse)
          racketscript/htdp/image
-         "universe-primitives.rkt"
-         "jscommon.rkt"
-         "encode-decode.rkt"
-         "debug-tools.rkt"
-         "universe-server.rkt")
+         "wrapper-utils/type-conversions.rkt"
+         "universe.rkt")
 
 (provide bigBang)
 
-(define (bigBang init-state handlers)
-  (#js*.console.log handlers)
-  10)
+(define (bigBang init-world handlers)
+  (#js*.console.log (js-list->list handlers))
+  (big-bang init-world (js-list->list handlers)))
