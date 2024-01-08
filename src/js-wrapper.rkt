@@ -9,7 +9,8 @@
 (provide bigBang
          toDraw
          onTick
-         (rename-out [text0 text]))
+         (rename-out [text0 text])
+         emptyScene)
 
 (define (bigBang init-world handlers)
   (define args (append (list init-world) (js-list->list handlers)))
@@ -22,3 +23,6 @@
   (text (js-string->string txt)
         size
         (js-string->string color)))
+
+(define (emptyScene width height [color (js-string "white")])
+  (empty-scene width height (js-string->string color)))
