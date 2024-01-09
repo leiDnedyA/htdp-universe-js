@@ -32,6 +32,8 @@ Broken functions:
          colorFrame
          placeImage
          placeImages
+         placeImageAlign
+         placeImagesAlign
 
          (rename-out [posn0 posn]) ; other
          posnX
@@ -114,6 +116,19 @@ htdp/image exports
 (define (placeImages images posns scene)
   (place-images (js-list->list images) (js-list->list posns) scene))
 
+(define (placeImageAlign image x y x-place y-place scene)
+  (place-image/align image 
+                     x y 
+                     (js-string->string x-place)
+                     (js-string->string y-place)
+                     scene))
+
+(define (placeImagesAlign images posns x-place y-place scene)
+  (place-images/align (js-list->list images) 
+                     (js-list->list posns) 
+                     (js-string->string x-place)
+                     (js-string->string y-place)
+                     scene))
 
 #|
 
