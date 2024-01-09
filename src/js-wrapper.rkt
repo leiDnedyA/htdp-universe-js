@@ -29,6 +29,12 @@ Broken functions:
          (rename-out [triangle0 triangle]) ; broken due to original implementation
          (rename-out [frame0 frame])
          colorFrame
+         placeImage
+         placeImages
+
+         (rename-out [posn0 posn]) ; other
+         posnX
+         posnY
          )
 
 (define (bigBang init-world handlers)
@@ -86,3 +92,13 @@ Broken functions:
 
 (define (colorFrame color img)
   (color-frame (js-string->string color) img))
+
+(define (placeImage image x y scene)
+  (place-image image x y scene))
+
+(define (placeImages images posns scene)
+  (place-images (js-list->list images) (js-list->list posns) scene))
+
+(define posn0 posn)
+(define posnX posn-x)
+(define posnY posn-y)
