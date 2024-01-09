@@ -11,6 +11,7 @@
 Broken functions:
 
 - line (not working in original implementation either)
+- triangle (sort of works but creates weird pentagon instead of triangle)
 
 |#
 
@@ -37,12 +38,26 @@ Broken functions:
          posnY
          )
 
+
+#|
+
+htdp/universe exports
+
+|#
+
 (define (bigBang init-world handlers)
   (define args (append (list init-world) (js-list->list handlers)))
   (apply big-bang args))
 
 (define (toDraw cb) (to-draw cb))
 (define (onTick cb [rate 28]) (on-tick cb rate))
+
+
+#|
+
+htdp/image exports
+
+|#
 
 (define (emptyScene width height [color (js-string "white")])
   (empty-scene width height (js-string->string color)))
@@ -98,6 +113,13 @@ Broken functions:
 
 (define (placeImages images posns scene)
   (place-images (js-list->list images) (js-list->list posns) scene))
+
+
+#|
+
+other misc exports
+
+|#
 
 (define posn0 posn)
 (define posnX posn-x)
