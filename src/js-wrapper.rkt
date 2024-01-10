@@ -34,11 +34,20 @@ Broken functions:
          placeImages
          placeImageAlign
          placeImagesAlign
+         overlayAlign
+         overlayXY
+         (rename-out [overlay0 overlay])
+         (rename-out [underlay0 underlay])
+         underlayXY
+         ; the four exports below this are slightly buggy due to original implementation
+         aboveAlign
+         (rename-out [above0 above])
+         besideAlign
+         (rename-out [beside0 beside])
 
          (rename-out [posn0 posn]) ; other
          posnX
-         posnY
-         )
+         posnY)
 
 
 #|
@@ -129,6 +138,32 @@ htdp/image exports
                      (js-string->string x-place)
                      (js-string->string y-place)
                      scene))
+
+(define (overlayAlign xPlace yPlace images)
+  (define args-list (append (list (js-string->string xPlace)
+                                  (js-string->string yPlace))
+                            (js-list->list images)))
+  (apply overlay/align args-list))
+
+(define overlayXY overlay/xy)
+
+(define (overlay0 imgs)
+  (apply overlay (js-list->list imgs)))
+
+(define (underlay0 imgs)
+  (apply underlay (js-list->list imgs)))
+
+(define underlayXY underlay/xy)
+
+(define (aboveAlign x-place imgs)
+  (apply above/align (append (list (js-string->string x-place)) (js-list->list imgs))))
+
+(define (above0 imgs) (apply above (js-list->list imgs)))
+
+(define (besideAlign y-place imgs)
+  (apply beside/align (append (list (js-string->string y-place)) (js-list->list imgs))))
+
+(define (beside0 imgs) (apply beside (js-list->list imgs)))
 
 #|
 
