@@ -20,6 +20,7 @@ Broken functions:
          onTick
          onMouse
          onKey
+         stopWhen
          
         ; htdp/image
          emptyScene
@@ -67,6 +68,7 @@ htdp/universe exports
 (define (onMouse cb) (on-mouse cb))
 (define (onKey cb) (on-key (lambda (ws key)
                              (cb ws (js-string key)))))
+(define (stopWhen cb) (stop-when cb))
 
 
 #|
