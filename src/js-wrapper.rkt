@@ -18,6 +18,8 @@ Broken functions:
 (provide bigBang ; htpd/universe
          toDraw
          onTick
+         onMouse
+         onKey
          
         ; htdp/image
          emptyScene
@@ -62,6 +64,9 @@ htdp/universe exports
 
 (define (toDraw cb) (to-draw cb))
 (define (onTick cb [rate 28]) (on-tick cb rate))
+(define (onMouse cb) (on-mouse cb))
+(define (onKey cb) (on-key (lambda (ws key)
+                             (cb ws (js-string key)))))
 
 
 #|
