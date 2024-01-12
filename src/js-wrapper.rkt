@@ -3,8 +3,10 @@
 (require (for-syntax racketscript/base
                      syntax/parse)
          racketscript/htdp/image
+         racketscript/htdp/universe
          "wrapper-utils/type-conversions.rkt"
-         "universe.rkt")
+         ;; "universe.rkt"
+         )
 
 #|
 
@@ -53,6 +55,7 @@ Broken functions:
          posnY)
 
 
+
 #|
 
 htdp/universe exports
@@ -60,6 +63,12 @@ htdp/universe exports
 |#
 
 (define (bigBang init-world handlers)
+  ; hacky fix for an issue with requestAnimationFrame in big-bang that produces an arity mismatch
+  (define old-requestAnimationFrame #js*.window.requestAnimationFrame)
+  ($/:= #js*.window.requestAnimationFrame (lambda (cb)
+                                            (#js.old-requestAnimationFrame (lambda (_) (cb)))
+                                            $/undefined))
+
   (define args (append (list init-world) (js-list->list handlers)))
   (apply big-bang args))
 
@@ -171,6 +180,7 @@ htdp/image exports
   (apply beside/align (append (list (js-string->string y-place)) (js-list->list imgs))))
 
 (define (beside0 imgs) (apply beside (js-list->list imgs)))
+
 
 #|
 
