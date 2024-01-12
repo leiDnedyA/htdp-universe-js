@@ -60,15 +60,14 @@ htdp/universe exports
 
 |#
 
-(define (bigBang init-world handlers)
+(define (bigBang init-world . handlers)
   ; hacky fix for an issue with requestAnimationFrame in big-bang that produces an arity mismatch
   (define old-requestAnimationFrame #js*.window.requestAnimationFrame)
   ($/:= #js*.window.requestAnimationFrame (lambda (cb)
                                             (#js.old-requestAnimationFrame (lambda (_) (cb)))
                                             $/undefined))
 
-  (define args (append (list init-world) (js-list->list handlers)))
-  (apply big-bang args))
+  (apply big-bang (js-list->list (#js*.Array.from $/arguments))))
 
 (define (toDraw cb) (to-draw cb))
 (define (onTick cb [rate 28]) (on-tick cb rate))
