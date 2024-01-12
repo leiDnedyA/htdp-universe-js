@@ -4,9 +4,7 @@
                      syntax/parse)
          racketscript/htdp/image
          racketscript/htdp/universe
-         "wrapper-utils/type-conversions.rkt"
-         ;; "universe.rkt"
-         )
+         "wrapper-utils/type-conversions.rkt")
 
 #|
 
