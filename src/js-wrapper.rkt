@@ -67,7 +67,7 @@ htdp/universe exports
                                             (#js.old-requestAnimationFrame (lambda (_) (cb)))
                                             $/undefined))
 
-  (apply big-bang (js-list->list (#js*.Array.from $/arguments))))
+  (apply big-bang (js-arguments->list $/arguments)))
 
 (define (toDraw cb) (to-draw cb))
 (define (onTick cb [rate 28]) (on-tick cb rate))
