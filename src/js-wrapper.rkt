@@ -69,12 +69,12 @@ htdp/universe exports
 
   (apply big-bang (js-arguments->list $/arguments)))
 
-(define (toDraw cb) (to-draw cb))
+(define toDraw to-draw)
 (define (onTick cb [rate 28]) (on-tick cb rate))
-(define (onMouse cb) (on-mouse cb))
+(define onMouse on-mouse)
 (define (onKey cb) (on-key (lambda (ws key)
                              (cb ws (js-string key)))))
-(define (stopWhen cb) (stop-when cb))
+(define stopWhen stop-when)
 
 
 #|
@@ -109,7 +109,6 @@ htdp/image exports
           (js-string->symbol m)
           (js-string->string c)))
 
-;; ; (define (text/font txt size color face family style weight underline?)
 ;; (define (textWithFont txt size color face family style weight underline?)
 ;;   (text/font (js-string->string txt)
 ;;              size
@@ -120,20 +119,17 @@ htdp/image exports
 ;;              weight
 ;;              underline?))
 
-; (define (triangle side mode color)
 (define (triangle0 side mode color)
   (triangle side 
             (js-string->symbol mode)
             (js-string->string color)))
 
-(define (frame0 img)
-  (frame img))
+(define frame0 frame)
 
 (define (colorFrame color img)
   (color-frame (js-string->string color) img))
 
-(define (placeImage image x y scene)
-  (place-image image x y scene))
+(define placeImage place-image)
 
 (define (placeImages images posns scene)
   (place-images (js-list->list images) (js-list->list posns) scene))
