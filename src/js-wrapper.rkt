@@ -3,8 +3,8 @@
 (require (for-syntax racketscript/base
                      syntax/parse)
          racketscript/htdp/image
-         "wrapper-utils/type-conversions.rkt"
-         "universe.rkt")
+         racketscript/htdp/universe
+         "wrapper-utils/type-conversions.rkt")
 
 #|
 
@@ -18,6 +18,9 @@ Broken functions:
 (provide bigBang ; htpd/universe
          toDraw
          onTick
+         onMouse
+         onKey
+         stopWhen
          
         ; htdp/image
          emptyScene
@@ -50,18 +53,28 @@ Broken functions:
          posnY)
 
 
+
 #|
 
 htdp/universe exports
 
 |#
 
-(define (bigBang init-world handlers)
-  (define args (append (list init-world) (js-list->list handlers)))
-  (apply big-bang args))
+(define (bigBang init-world . handlers)
+  ; hacky fix for an issue with requestAnimationFrame in big-bang that produces an arity mismatch
+  (define old-requestAnimationFrame #js*.window.requestAnimationFrame)
+  ($/:= #js*.window.requestAnimationFrame (lambda (cb)
+                                            (#js.old-requestAnimationFrame (lambda (_) (cb)))
+                                            $/undefined))
 
-(define (toDraw cb) (to-draw cb))
+  (apply big-bang (js-arguments->list $/arguments)))
+
+(define toDraw to-draw)
 (define (onTick cb [rate 28]) (on-tick cb rate))
+(define onMouse on-mouse)
+(define (onKey cb) (on-key (lambda (ws key)
+                             (cb ws (js-string key)))))
+(define stopWhen stop-when)
 
 
 #|
@@ -96,7 +109,6 @@ htdp/image exports
           (js-string->symbol m)
           (js-string->string c)))
 
-;; ; (define (text/font txt size color face family style weight underline?)
 ;; (define (textWithFont txt size color face family style weight underline?)
 ;;   (text/font (js-string->string txt)
 ;;              size
@@ -107,20 +119,17 @@ htdp/image exports
 ;;              weight
 ;;              underline?))
 
-; (define (triangle side mode color)
 (define (triangle0 side mode color)
   (triangle side 
             (js-string->symbol mode)
             (js-string->string color)))
 
-(define (frame0 img)
-  (frame img))
+(define frame0 frame)
 
 (define (colorFrame color img)
   (color-frame (js-string->string color) img))
 
-(define (placeImage image x y scene)
-  (place-image image x y scene))
+(define placeImage place-image)
 
 (define (placeImages images posns scene)
   (place-images (js-list->list images) (js-list->list posns) scene))
@@ -139,31 +148,30 @@ htdp/image exports
                      (js-string->string y-place)
                      scene))
 
-(define (overlayAlign xPlace yPlace images)
+(define (overlayAlign xPlace yPlace . images)
   (define args-list (append (list (js-string->string xPlace)
                                   (js-string->string yPlace))
-                            (js-list->list images)))
+                            images))
   (apply overlay/align args-list))
 
 (define overlayXY overlay/xy)
 
-(define (overlay0 imgs)
-  (apply overlay (js-list->list imgs)))
+(define overlay0 overlay)
 
-(define (underlay0 imgs)
-  (apply underlay (js-list->list imgs)))
+(define underlay0 underlay)
 
 (define underlayXY underlay/xy)
 
-(define (aboveAlign x-place imgs)
-  (apply above/align (append (list (js-string->string x-place)) (js-list->list imgs))))
+(define (aboveAlign x-place . imgs)
+  (apply above/align (append (list (js-string->string x-place)) imgs)))
 
-(define (above0 imgs) (apply above (js-list->list imgs)))
+(define above0 above)
 
-(define (besideAlign y-place imgs)
-  (apply beside/align (append (list (js-string->string y-place)) (js-list->list imgs))))
+(define (besideAlign y-place . imgs)
+  (apply beside/align (append (list (js-string->string y-place)) imgs)))
 
-(define (beside0 imgs) (apply beside (js-list->list imgs)))
+(define beside0 beside)
+
 
 #|
 
