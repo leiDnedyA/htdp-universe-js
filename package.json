@@ -1,8 +1,8 @@
 {
   "name": "htdp-universe-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A port of Racket's htdp/universe library to JavaScript",
-  "main": "js-build/modules/js-wrapper.rkt.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
