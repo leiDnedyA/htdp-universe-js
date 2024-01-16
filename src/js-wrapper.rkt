@@ -71,7 +71,8 @@ htdp/universe exports
 
 (define toDraw to-draw)
 (define (onTick cb [rate 28]) (on-tick cb rate))
-(define onMouse on-mouse)
+(define (onMouse cb) (on-mouse (lambda (ws x-pos y-pos mouse-event)
+                             (cb ws x-pos y-pos (js-string mouse-event)))))
 (define (onKey cb) (on-key (lambda (ws key)
                              (cb ws (js-string key)))))
 (define stopWhen stop-when)
