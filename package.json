@@ -1,0 +1,25 @@
+{
+  "name": "htdp-universe-js",
+  "version": "1.0.2",
+  "description": "A port of Racket's htdp/universe library to JavaScript",
+  "main": "js-build/modules/js-wrapper.rkt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leiDnedyA/htdp-universe-js.git"
+  },
+  "keywords": [
+    "racket",
+    "htdp",
+    "htdp/universe"
+  ],
+  "author": "Ayden Diel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leiDnedyA/htdp-universe-js/issues"
+  },
+  "homepage": "https://github.com/leiDnedyA/htdp-universe-js#readme"
+}
+
