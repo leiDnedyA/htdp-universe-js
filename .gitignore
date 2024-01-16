@@ -4,5 +4,4 @@
 .DS_Store
 compiled/
 /doc/
-js-build/
 node_modules/
