@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-npx typedoc -d docs ./docs-input/main.js
+npx jsdoc -c jsdoc_conf.json -d docs ./docs-input/main.js
 
 exit 0
