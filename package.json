@@ -23,5 +23,8 @@
   "homepage": "https://github.com/leiDnedyA/htdp-universe-js#readme",
   "dependencies": {
     "jsdoc": "^4.0.2"
+  },
+  "devDependencies": {
+    "tsdoc": "^0.0.4"
   }
 }
