@@ -156,6 +156,21 @@ function onMouse(mouseFunction) {}
 
 /**
  * Handles key events.
- * @param {keyFunction} keyFunction - Returns a new world state based on the current state and a mouse event.
+ * @param {keyFunction} keyFunction - Called every time a key is pressed.
  */
 function onKey(keyFunction) {}
+
+/**
+ * Determines whether world program should be terminated based on a world state.
+ * @callback lastWorld - The function to be called on each key event.
+ * @param {WorldState} ws - The current world state.
+ * @returns {boolean} - `true` if world should be ended and `false` otherwise.
+ */
+
+/**
+ * Tells big bang to call the lastWorld callback on the start of any
+ * world-producing callback. Returns `true` if the program should end, 
+ * and `false` otherwise.
+ * @param {lastWorld} lastWorld - Determines whether program should end.
+ */
+function stopWhen(lastWorld) {}

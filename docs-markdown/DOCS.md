@@ -17,6 +17,11 @@ be drawn to the canvas.</p>
 <dt><a href="#onKey">onKey(keyFunction)</a></dt>
 <dd><p>Handles key events.</p>
 </dd>
+<dt><a href="#stopWhen">stopWhen(lastWorld)</a></dt>
+<dd><p>Tells big bang to call the lastWorld callback on the start of any
+world-producing callback. Returns <code>true</code> if the program should end, 
+and <code>false</code> otherwise.</p>
+</dd>
 </dl>
 
 ## Typedefs
@@ -111,6 +116,9 @@ special events, starting with the four most important ones:</p>
 <dt><a href="#keyFunction">keyFunction</a> ⇒ <code><a href="#WorldState">WorldState</a></code></dt>
 <dd><p>Returns a new world state based on the current state and a key event.</p>
 </dd>
+<dt><a href="#lastWorld">lastWorld</a> ⇒ <code>boolean</code></dt>
+<dd><p>Determines whether world program should be terminated based on a world state.</p>
+</dd>
 </dl>
 
 <a name="bigBang"></a>
@@ -168,7 +176,20 @@ Handles key events.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| keyFunction | [<code>keyFunction</code>](#keyFunction) | Returns a new world state based on the current state and a mouse event. |
+| keyFunction | [<code>keyFunction</code>](#keyFunction) | Called every time a key is pressed. |
+
+<a name="stopWhen"></a>
+
+## stopWhen(lastWorld)
+Tells big bang to call the lastWorld callback on the start of any
+world-producing callback. Returns `true` if the program should end, 
+and `false` otherwise.
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| lastWorld | [<code>lastWorld</code>](#lastWorld) | Determines whether program should end. |
 
 <a name="WorldState"></a>
 
@@ -307,4 +328,16 @@ Returns a new world state based on the current state and a key event.
 | --- | --- | --- |
 | ws | [<code>WorldState</code>](#WorldState) | The current world state. |
 | keyEvent | [<code>KeyEvent</code>](#KeyEvent) | The KeyEvent (string representing the key pressed). |
+
+<a name="lastWorld"></a>
+
+## lastWorld ⇒ <code>boolean</code>
+Determines whether world program should be terminated based on a world state.
+
+**Kind**: global typedef  
+**Returns**: <code>boolean</code> - - `true` if world should be ended and `false` otherwise.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ws | [<code>WorldState</code>](#WorldState) | The current world state. |
 
