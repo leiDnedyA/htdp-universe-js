@@ -20,6 +20,12 @@
   "bugs": {
     "url": "https://github.com/leiDnedyA/htdp-universe-js/issues"
   },
-  "homepage": "https://github.com/leiDnedyA/htdp-universe-js#readme"
+  "homepage": "https://github.com/leiDnedyA/htdp-universe-js#readme",
+  "dependencies": {
+    "jsdoc": "^4.0.2"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^8.0.1",
+    "tsdoc": "^0.0.4"
+  }
 }
-

@@ -68,6 +68,9 @@ npm run dev
 
 Finally, open a browser window to `http://localhost:5173` to see the example running!
 
+## Documentation
+
+Docs are available in the GitHub repo in markdown format [here](https://github.com/leiDnedyA/htdp-universe-js/blob/master/docs-markdown/DOCS.md), and are built via JSDoc to an HTML file [here](https://github.com/leiDnedyA/htdp-universe-js/blob/master/docs/index.html).
 
 ## Other Information
 

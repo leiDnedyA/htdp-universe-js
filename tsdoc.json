@@ -1,0 +1,37 @@
+{
+	"tags":
+	{
+		"allowUnknownTags" : true
+	},
+	"plugins":[
+		 "plugins/markdown"
+		,"/home/ayden/Projects/chang/universe/htdp-universe-js/node_modules/tsdoc/template/plugins/TSDoc.js"
+	],
+	"opts":
+	{
+		"template"	:"/home/ayden/Projects/chang/universe/htdp-universe-js/node_modules/tsdoc/template",
+		"recurse"	:"true"
+	},
+	"templates" : {
+		"cleverLinks"     : false,
+		"monospaceLinks"  : false
+	},
+	"source":
+	{
+		"includePattern": "(\\.d)?\\.ts$"
+	},
+	"markdown"  : {
+		"parser"   : "gfm",
+		"hardwrap" : true
+	},
+	"tsdoc":{
+		"source"		:"/home/ayden/Projects/chang/universe/htdp-universe-js/src/",
+		"destination"	:"/home/ayden/Projects/chang/universe/htdp-universe-js/docs",
+		"tutorials"		:"",
+		"systemName"	: "htdp-universe-js",
+		"footer"		: "",
+		"copyright"		: "htdp-universe-js Copyright © 2024 ayden.",
+		"outputSourceFiles" : true,
+		"commentsOnly": true
+	}
+}
