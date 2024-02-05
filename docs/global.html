@@ -284,6 +284,143 @@
     
 
     
+    <h4 class="name" id="onKey"><span class="type-signature"></span>onKey<span class="signature">(keyFunction)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Handles key events.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>keyFunction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#keyFunction">keyFunction</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Returns a new world state based on the current state and a mouse event.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="main.js.html">main.js</a>, <a href="main.js.html#line161">line 161</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="onMouse"><span class="type-signature"></span>onMouse<span class="signature">(mouseFunction)</span><span class="type-signature"></span></h4>
     
 
@@ -770,6 +907,135 @@ be drawn to the canvas.</p>
 
             
                 
+<h4 class="name" id="KeyEvent">KeyEvent</h4>
+
+
+
+
+<div class="description">
+    <p>For simplicity, we represent key events with strings, but
+not all strings are key events. The representation of key
+events comes in distinct classes. First, a single-character
+string is used to signal that the user has hit a &quot;regular&quot;
+key, such as</p>
+<ul>
+<li>&quot;q&quot; stands for the q key;</li>
+<li>&quot;w&quot; stands for the w key;</li>
+<li>&quot;e&quot; stands for the e key;</li>
+<li>&quot;r&quot; stands for the r key; and so on.</li>
+</ul>
+<p>Some of these strings look somewhat unusual:</p>
+<ul>
+<li>&quot; &quot; stands for the space bar;</li>
+<li>&quot;\r&quot; stands for the return and enter key;</li>
+<li>&quot;\t&quot; stands for the tab key; and</li>
+<li>&quot;\b&quot; stands for the backspace key.</li>
+</ul>
+<p>On rare occasions your programs may also encounter &quot;\u007F&quot;,
+which is the string representing the delete key (aka rubout).</p>
+<p>Second, some keys have multiple-character string representations.
+Strings with more than one character denote arrow keys or other
+special events, starting with the four most important ones:</p>
+<ul>
+<li>&quot;left&quot; is the left arrow;</li>
+<li>&quot;right&quot; is the right arrow;</li>
+<li>&quot;up&quot; is the up arrow;</li>
+<li>&quot;down&quot; is the down arrow;</li>
+</ul>
+<p>Here are some others that you may encounter:</p>
+<ul>
+<li>&quot;start&quot;</li>
+<li>&quot;cancel&quot;</li>
+<li>&quot;clear&quot;</li>
+<li>&quot;shift&quot;</li>
+<li>&quot;rshift&quot;</li>
+<li>&quot;control&quot;</li>
+<li>&quot;rcontrol&quot;</li>
+<li>&quot;menu&quot;</li>
+<li>&quot;pause&quot;</li>
+<li>&quot;capital&quot;</li>
+<li>&quot;prior&quot;</li>
+<li>&quot;next&quot;</li>
+<li>&quot;end&quot;</li>
+<li>&quot;home&quot;</li>
+<li>&quot;escape&quot;</li>
+<li>&quot;select&quot;</li>
+<li>&quot;print&quot;</li>
+<li>&quot;execute&quot;</li>
+<li>&quot;snapshot&quot;</li>
+<li>&quot;insert&quot;</li>
+<li>&quot;help&quot;</li>
+</ul>
+<p>Function keys: &quot;f1&quot;, &quot;f2&quot;, &quot;f3&quot;, &quot;f4&quot;, &quot;f5&quot;, &quot;f6&quot;, &quot;f7&quot;, &quot;f8&quot;, &quot;f9&quot;, &quot;f10&quot;, &quot;f11&quot;, &quot;f12&quot;, &quot;f13&quot;, &quot;f14&quot;, &quot;f15&quot;, &quot;f16&quot;, &quot;f17&quot;, &quot;f18&quot;, &quot;f19&quot;, &quot;f20&quot;, &quot;f21&quot;, &quot;f22&quot;, &quot;f23&quot;, &quot;f24&quot;</p>
+<ul>
+<li>&quot;numlock&quot;</li>
+<li>&quot;scroll&quot;</li>
+</ul>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="main.js.html">main.js</a>, <a href="main.js.html#line85">line 85</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+            
+                
 <h4 class="name" id="MouseEvent">MouseEvent</h4>
 
 
@@ -930,6 +1196,190 @@ be drawn to the canvas.</p>
     
 </dl>
 
+
+
+
+
+
+            
+                
+
+    
+
+    
+    <h4 class="name" id="keyFunction"><span class="type-signature"></span>keyFunction<span class="signature">(ws, keyEvent)</span><span class="type-signature"> &rarr; {<a href="global.html#WorldState">WorldState</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Returns a new world state based on the current state and a key event.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ws</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#WorldState">WorldState</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The current world state.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>keyEvent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#KeyEvent">KeyEvent</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The KeyEvent (string representing the key pressed).</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="main.js.html">main.js</a>, <a href="main.js.html#line149">line 149</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The next world state.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#WorldState">WorldState</a></span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -1340,7 +1790,7 @@ be drawn to the canvas.</p>
 
 
 <div class="description">
-    <p>Returns an image based on a world state.</p>
+    <p>Is called on each tick by the onTick handler.</p>
 </div>
 
 
@@ -1501,13 +1951,13 @@ be drawn to the canvas.</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#bigBang">bigBang</a></li><li><a href="global.html#onMouse">onMouse</a></li><li><a href="global.html#onTick">onTick</a></li><li><a href="global.html#toDraw">toDraw</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#bigBang">bigBang</a></li><li><a href="global.html#onKey">onKey</a></li><li><a href="global.html#onMouse">onMouse</a></li><li><a href="global.html#onTick">onTick</a></li><li><a href="global.html#toDraw">toDraw</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Feb 01 2024 19:39:28 GMT-0500 (Eastern Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Feb 04 2024 21:28:23 GMT-0500 (Eastern Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
