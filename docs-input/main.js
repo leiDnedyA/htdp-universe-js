@@ -202,3 +202,73 @@ function line(width, height, color) {}
  * @returns {Image} - The rectangle image.
  */
 function rectangle(width, height, mode, color) {}
+
+/**
+ * Returns and image of a square.
+ * @param {number} side - The side length.
+ * @param {"outline" | "solid"} mode - The outline mode.
+ * @param {string} color - The color.
+ * @returns {Image} - The square image.
+ */
+function square(side, mode, color) {}
+
+/**
+ * Returns and image of a circle.
+ * @param {number} radius - The radius.
+ * @param {"outline" | "solid"} mode - The outline mode.
+ * @param {string} color - The color.
+ * @returns {Image} - The circle image.
+ */
+function circle(radius, mode, color) {}
+
+/**
+ * Returns and image of text.
+ * @param {string} txt - The text to be drawn.
+ * @param {number} size - The font size of the text to be drawn.
+ * @param {string} color - The color.
+ * @returns {Image} - The text image.
+ */
+function text(txt, size, color) {}
+
+/**
+ * Returns and image of an equilateral triangle.
+ * @param {number} side - The side length.
+ * @param {"outline" | "solid"} mode - The outline mode.
+ * @param {string} color - The color.
+ * @returns {Image} - The triangle's image.
+ */
+function triangle(triangle, mode, color) {}
+
+/**
+ * Returns an image just like image, except with a black, single pixel frame drawn around the bounding box of the image.
+ * @param {Image} image - The image to put the frame around.
+ * @returns {Image} - The new image with the frame around it.
+ */
+function frame(image) {}
+
+/**
+ * Returns an image just like image, except with single pixel frame drawn around the bounding box of the image in a given color.
+ * @param {string} color - The color of the frame to be drawn.
+ * @param {Image} image - The image to put the frame around.
+ * @returns {Image} - The new image with the frame around it.
+ */
+function colorFrame(color, image) {}
+
+/**
+ * Places image onto scene with its center at the coordinates (x,y) and crops the resulting image so that it has the same size as scene. The coordinates are relative to the top-left of scene.
+ * @param {Image} image - The image to place into the scene.
+ * @param {number} x - The x position to place the image.
+ * @param {number} y - The y position to place the image.
+ * @param {Image} scene - The scene to place the image into.
+ * @returns {Image} - The image inside of the scene.
+ */
+function placeImage(image, x, y, scene) {}
+
+/**
+ * Places each image in `images` into scene like `place-image` would, using the coordinates in `posns` as the `x` and `y` arguments to `place-image`.
+ * @param {Image[]} images - The images to place into the scene.
+ * @param {Posn[]} posns - The positions of each image.
+ * @param {Image} scene - The scene to place the images into.
+ * @returns {Image} - The images inside of the scene.
+ */
+function placeImages(images, posns, scene) {}

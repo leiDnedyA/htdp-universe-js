@@ -31,6 +31,30 @@ and <code>false</code> otherwise.</p>
 <dt><a href="#rectangle">rectangle(width, height, mode, color)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
 <dd><p>Returns and image of a rectangle.</p>
 </dd>
+<dt><a href="#square">square(side, mode, color)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Returns and image of a square.</p>
+</dd>
+<dt><a href="#circle">circle(radius, mode, color)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Returns and image of a circle.</p>
+</dd>
+<dt><a href="#text">text(txt, size, color)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Returns and image of text.</p>
+</dd>
+<dt><a href="#triangle">triangle(side, mode, color)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Returns and image of an equilateral triangle.</p>
+</dd>
+<dt><a href="#frame">frame(image)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Returns an image just like image, except with a black, single pixel frame drawn around the bounding box of the image.</p>
+</dd>
+<dt><a href="#colorFrame">colorFrame(color, image)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Returns an image just like image, except with single pixel frame drawn around the bounding box of the image in a given color.</p>
+</dd>
+<dt><a href="#placeImage">placeImage(image, x, y, scene)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Places image onto scene with its center at the coordinates (x,y) and crops the resulting image so that it has the same size as scene. The coordinates are relative to the top-left of scene.</p>
+</dd>
+<dt><a href="#placeImages">placeImages(images, posns, scene)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Places each image in <code>images</code> into scene like <code>place-image</code> would, using the coordinates in <code>posns</code> as the <code>x</code> and <code>y</code> arguments to <code>place-image</code>.</p>
+</dd>
 </dl>
 
 ## Typedefs
@@ -242,6 +266,116 @@ Returns and image of a rectangle.
 | height | <code>number</code> | The height. |
 | mode | <code>&quot;outline&quot;</code> \| <code>&quot;solid&quot;</code> | The outline mode. |
 | color | <code>string</code> | The color. |
+
+<a name="square"></a>
+
+## square(side, mode, color) ⇒ [<code>Image</code>](#Image)
+Returns and image of a square.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The square image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| side | <code>number</code> | The side length. |
+| mode | <code>&quot;outline&quot;</code> \| <code>&quot;solid&quot;</code> | The outline mode. |
+| color | <code>string</code> | The color. |
+
+<a name="circle"></a>
+
+## circle(radius, mode, color) ⇒ [<code>Image</code>](#Image)
+Returns and image of a circle.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The circle image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| radius | <code>number</code> | The radius. |
+| mode | <code>&quot;outline&quot;</code> \| <code>&quot;solid&quot;</code> | The outline mode. |
+| color | <code>string</code> | The color. |
+
+<a name="text"></a>
+
+## text(txt, size, color) ⇒ [<code>Image</code>](#Image)
+Returns and image of text.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The text image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| txt | <code>string</code> | The text to be drawn. |
+| size | <code>number</code> | The font size of the text to be drawn. |
+| color | <code>string</code> | The color. |
+
+<a name="triangle"></a>
+
+## triangle(side, mode, color) ⇒ [<code>Image</code>](#Image)
+Returns and image of an equilateral triangle.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The triangle's image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| side | <code>number</code> | The side length. |
+| mode | <code>&quot;outline&quot;</code> \| <code>&quot;solid&quot;</code> | The outline mode. |
+| color | <code>string</code> | The color. |
+
+<a name="frame"></a>
+
+## frame(image) ⇒ [<code>Image</code>](#Image)
+Returns an image just like image, except with a black, single pixel frame drawn around the bounding box of the image.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The new image with the frame around it.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| image | [<code>Image</code>](#Image) | The image to put the frame around. |
+
+<a name="colorFrame"></a>
+
+## colorFrame(color, image) ⇒ [<code>Image</code>](#Image)
+Returns an image just like image, except with single pixel frame drawn around the bounding box of the image in a given color.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The new image with the frame around it.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| color | <code>string</code> | The color of the frame to be drawn. |
+| image | [<code>Image</code>](#Image) | The image to put the frame around. |
+
+<a name="placeImage"></a>
+
+## placeImage(image, x, y, scene) ⇒ [<code>Image</code>](#Image)
+Places image onto scene with its center at the coordinates (x,y) and crops the resulting image so that it has the same size as scene. The coordinates are relative to the top-left of scene.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The image inside of the scene.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| image | [<code>Image</code>](#Image) | The image to place into the scene. |
+| x | <code>number</code> | The x position to place the image. |
+| y | <code>number</code> | The y position to place the image. |
+| scene | [<code>Image</code>](#Image) | The scene to place the image into. |
+
+<a name="placeImages"></a>
+
+## placeImages(images, posns, scene) ⇒ [<code>Image</code>](#Image)
+Places each image in `images` into scene like `place-image` would, using the coordinates in `posns` as the `x` and `y` arguments to `place-image`.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The images inside of the scene.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| images | [<code>Array.&lt;Image&gt;</code>](#Image) | The images to place into the scene. |
+| posns | <code>Array.&lt;Posn&gt;</code> | The positions of each image. |
+| scene | [<code>Image</code>](#Image) | The scene to place the images into. |
 
 <a name="WorldState"></a>
 
