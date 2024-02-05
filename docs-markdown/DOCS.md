@@ -53,7 +53,41 @@ and <code>false</code> otherwise.</p>
 <dd><p>Places image onto scene with its center at the coordinates (x,y) and crops the resulting image so that it has the same size as scene. The coordinates are relative to the top-left of scene.</p>
 </dd>
 <dt><a href="#placeImages">placeImages(images, posns, scene)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
-<dd><p>Places each image in <code>images</code> into scene like <code>place-image</code> would, using the coordinates in <code>posns</code> as the <code>x</code> and <code>y</code> arguments to <code>place-image</code>.</p>
+<dd><p>Places each image in <code>images</code> into scene like <code>placeImage</code> would, using the coordinates in <code>posns</code> as the <code>x</code> and <code>y</code> arguments to <code>placeImage</code>.</p>
+</dd>
+<dt><a href="#placeImageAlign">placeImageAlign(image, x, y, xPlace, yPlace, scene)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Like <code>placeImage</code>, but uses image’s <code>xPlace</code> and <code>yPlace</code> to anchor the image. Also, like <code>placeImage</code>, <code>placeImageAlign</code> crops the resulting image so that it has the same size as <code>scene</code>.</p>
+</dd>
+<dt><a href="#placeImagesAlign">placeImagesAlign(images, posns, xPlace, yPlace, scene)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Like <code>placeImages</code> except that it places the images with respect to <code>xPlace</code> and <code>yPlace</code>.</p>
+</dd>
+<dt><a href="#overlayAlign">overlayAlign(xPlace, yPlace, ...images)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Overlays all of its image arguments, much like the <code>overlay</code> function, but using <code>xPlace</code> and <code>yPlace</code> to determine where the images are lined up. For example, if <code>xPlace</code> and <code>yPlace</code> are both &quot;middle&quot;, then the images are lined up on their centers.</p>
+</dd>
+<dt><a href="#overlayXY">overlayXY(i1, x, y, i2)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Constructs an image by overlaying i1 on top of i2. The images are initially lined up on their upper-left corners and then i2 is shifted to the right by x pixels and down by y pixels.</p>
+</dd>
+<dt><a href="#overlay">overlay(i1, i2, ...is)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Overlays all of its arguments building a single image. The first argument goes on top of the second argument, which goes on top of the third argument, etc. The images are all lined up on their centers.</p>
+</dd>
+<dt><a href="#underlay">underlay(i1, i2, ...is)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Underlays all of its arguments building a single image.
+It behaves like overlay, but with the arguments in the reverse order. That is, the first argument goes underneath of the second argument, which goes underneath the third argument, etc. The images are all lined up on their centers.</p>
+</dd>
+<dt><a href="#underlayXY">underlayXY(i1, x, y, i2)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Constructs an image by underlaying i1 underneath i2. The images are initially lined up on their upper-left corners and then i2 is shifted to the right by x pixels to and down by y pixels.</p>
+</dd>
+<dt><a href="#aboveAlign">aboveAlign(xPlace, ...imgs)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Constructs an image by placing all of the argument images in a vertical row, lined up as indicated by the <code>xPlace</code> argument. For example, if <code>xPlace</code> is &quot;middle&quot;, then the images are placed above each other with their centers lined up.</p>
+</dd>
+<dt><a href="#above">above(...is)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Constructs an image by placing all of the argument images in a vertical row, aligned along their centers.</p>
+</dd>
+<dt><a href="#besideAlign">besideAlign(yPlace, ...imgs)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Constructs an image by placing all of the argument images in a horizontal row, lined up as indicated by the <code>yPlace</code> argument. For example, if <code>yPlace</code> is &quot;middle&quot;, then the images are placed side by side with their centers lined up with each other.</p>
+</dd>
+<dt><a href="#beside">beside(...is)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Constructs an image by placing all of the argument images in a horizontal row, aligned along their centers.</p>
 </dd>
 </dl>
 
@@ -366,16 +400,172 @@ Places image onto scene with its center at the coordinates (x,y) and crops the r
 <a name="placeImages"></a>
 
 ## placeImages(images, posns, scene) ⇒ [<code>Image</code>](#Image)
-Places each image in `images` into scene like `place-image` would, using the coordinates in `posns` as the `x` and `y` arguments to `place-image`.
+Places each image in `images` into scene like `placeImage` would, using the coordinates in `posns` as the `x` and `y` arguments to `placeImage`.
 
 **Kind**: global function  
-**Returns**: [<code>Image</code>](#Image) - - The images inside of the scene.  
+**Returns**: [<code>Image</code>](#Image) - - The resulting image.  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | images | [<code>Array.&lt;Image&gt;</code>](#Image) | The images to place into the scene. |
 | posns | <code>Array.&lt;Posn&gt;</code> | The positions of each image. |
 | scene | [<code>Image</code>](#Image) | The scene to place the images into. |
+
+<a name="placeImageAlign"></a>
+
+## placeImageAlign(image, x, y, xPlace, yPlace, scene) ⇒ [<code>Image</code>](#Image)
+Like `placeImage`, but uses image’s `xPlace` and `yPlace` to anchor the image. Also, like `placeImage`, `placeImageAlign` crops the resulting image so that it has the same size as `scene`.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The resulting image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| image | [<code>Image</code>](#Image) | The image to place into the scene. |
+| x | <code>number</code> | The x position to place the image. |
+| y | <code>number</code> | The y position to place the image. |
+| xPlace | <code>string</code> | The x alignment of the image placement. |
+| yPlace | <code>string</code> | The y alignment of the image placement. |
+| scene | [<code>Image</code>](#Image) | The scene to place the image into. |
+
+<a name="placeImagesAlign"></a>
+
+## placeImagesAlign(images, posns, xPlace, yPlace, scene) ⇒ [<code>Image</code>](#Image)
+Like `placeImages` except that it places the images with respect to `xPlace` and `yPlace`.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The resulting image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| images | [<code>Array.&lt;Image&gt;</code>](#Image) | The images to place into the scene. |
+| posns | <code>Array.&lt;Posn&gt;</code> | The positions of each image. |
+| xPlace | <code>string</code> | The x alignment of the image placement. |
+| yPlace | <code>string</code> | The y alignment of the image placement. |
+| scene | [<code>Image</code>](#Image) | The scene to place the images into. |
+
+<a name="overlayAlign"></a>
+
+## overlayAlign(xPlace, yPlace, ...images) ⇒ [<code>Image</code>](#Image)
+Overlays all of its image arguments, much like the `overlay` function, but using `xPlace` and `yPlace` to determine where the images are lined up. For example, if `xPlace` and `yPlace` are both "middle", then the images are lined up on their centers.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The resulting image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| xPlace | <code>string</code> | The x alignment of the image placement. |
+| yPlace | <code>string</code> | The y alignment of the image placement. |
+| ...images | [<code>Image</code>](#Image) | The images to place into the scene. |
+
+<a name="overlayXY"></a>
+
+## overlayXY(i1, x, y, i2) ⇒ [<code>Image</code>](#Image)
+Constructs an image by overlaying i1 on top of i2. The images are initially lined up on their upper-left corners and then i2 is shifted to the right by x pixels and down by y pixels.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The resulting image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| i1 | [<code>Image</code>](#Image) | The image to place into i2. |
+| x | <code>number</code> | The x position to place i1. |
+| y | <code>number</code> | The y position to place i1. |
+| i2 | [<code>Image</code>](#Image) | The image to go under i1. |
+
+<a name="overlay"></a>
+
+## overlay(i1, i2, ...is) ⇒ [<code>Image</code>](#Image)
+Overlays all of its arguments building a single image. The first argument goes on top of the second argument, which goes on top of the third argument, etc. The images are all lined up on their centers.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The resulting image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| i1 | [<code>Image</code>](#Image) | The image to place on top. |
+| i2 | [<code>Image</code>](#Image) | The image to go under i1. |
+| ...is | [<code>Image</code>](#Image) | The following sequence of images to place under i2. |
+
+<a name="underlay"></a>
+
+## underlay(i1, i2, ...is) ⇒ [<code>Image</code>](#Image)
+Underlays all of its arguments building a single image.
+It behaves like overlay, but with the arguments in the reverse order. That is, the first argument goes underneath of the second argument, which goes underneath the third argument, etc. The images are all lined up on their centers.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The resulting image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| i1 | [<code>Image</code>](#Image) | The image to place on the bottom. |
+| i2 | [<code>Image</code>](#Image) | The image to go directly above i1. |
+| ...is | [<code>Image</code>](#Image) | The following sequence of images to place above i2. |
+
+<a name="underlayXY"></a>
+
+## underlayXY(i1, x, y, i2) ⇒ [<code>Image</code>](#Image)
+Constructs an image by underlaying i1 underneath i2. The images are initially lined up on their upper-left corners and then i2 is shifted to the right by x pixels to and down by y pixels.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The resulting image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| i1 | [<code>Image</code>](#Image) | The image to place below i2. |
+| x | <code>number</code> | The x position to place i1. |
+| y | <code>number</code> | The y position to place i1. |
+| i2 | [<code>Image</code>](#Image) | The image to go above i1. |
+
+<a name="aboveAlign"></a>
+
+## aboveAlign(xPlace, ...imgs) ⇒ [<code>Image</code>](#Image)
+Constructs an image by placing all of the argument images in a vertical row, lined up as indicated by the `xPlace` argument. For example, if `xPlace` is "middle", then the images are placed above each other with their centers lined up.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The resulting image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| xPlace | <code>string</code> | The alignment of the images on the x axis. |
+| ...imgs | [<code>Image</code>](#Image) | The images to align. |
+
+<a name="above"></a>
+
+## above(...is) ⇒ [<code>Image</code>](#Image)
+Constructs an image by placing all of the argument images in a vertical row, aligned along their centers.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The resulting image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ...is | [<code>Image</code>](#Image) | The sequence of images to place on top of one another, with the lowest first and the highest last in the array. |
+
+<a name="besideAlign"></a>
+
+## besideAlign(yPlace, ...imgs) ⇒ [<code>Image</code>](#Image)
+Constructs an image by placing all of the argument images in a horizontal row, lined up as indicated by the `yPlace` argument. For example, if `yPlace` is "middle", then the images are placed side by side with their centers lined up with each other.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The resulting image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| yPlace | <code>string</code> | The alignment of the images on the y axis. |
+| ...imgs | [<code>Image</code>](#Image) | The images to align. |
+
+<a name="beside"></a>
+
+## beside(...is) ⇒ [<code>Image</code>](#Image)
+Constructs an image by placing all of the argument images in a horizontal row, aligned along their centers.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The resulting image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ...is | [<code>Image</code>](#Image) | The sequence of images to place on top of one another, with the leftmost first and the rightmost last in the array. |
 
 <a name="WorldState"></a>
 

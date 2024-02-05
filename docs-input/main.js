@@ -265,10 +265,111 @@ function colorFrame(color, image) {}
 function placeImage(image, x, y, scene) {}
 
 /**
- * Places each image in `images` into scene like `place-image` would, using the coordinates in `posns` as the `x` and `y` arguments to `place-image`.
+ * Places each image in `images` into scene like `placeImage` would, using the coordinates in `posns` as the `x` and `y` arguments to `placeImage`.
  * @param {Image[]} images - The images to place into the scene.
  * @param {Posn[]} posns - The positions of each image.
  * @param {Image} scene - The scene to place the images into.
- * @returns {Image} - The images inside of the scene.
+ * @returns {Image} - The resulting image.
  */
 function placeImages(images, posns, scene) {}
+
+/**
+ * Like `placeImage`, but uses image’s `xPlace` and `yPlace` to anchor the image. Also, like `placeImage`, `placeImageAlign` crops the resulting image so that it has the same size as `scene`.
+ * @param {Image} image - The image to place into the scene.
+ * @param {number} x - The x position to place the image.
+ * @param {number} y - The y position to place the image.
+ * @param {string} xPlace - The x alignment of the image placement.
+ * @param {string} yPlace - The y alignment of the image placement.
+ * @param {Image} scene - The scene to place the image into.
+ * @returns {Image} - The resulting image.
+ */
+function placeImageAlign(image, x, y, xPlace, yPlace, scene) {}
+
+/**
+ * Like `placeImages` except that it places the images with respect to `xPlace` and `yPlace`.
+ * @param {Image[]} images - The images to place into the scene.
+ * @param {Posn[]} posns - The positions of each image.
+ * @param {string} xPlace - The x alignment of the image placement.
+ * @param {string} yPlace - The y alignment of the image placement.
+ * @param {Image} scene - The scene to place the images into.
+ * @returns {Image} - The resulting image.
+ */
+function placeImagesAlign(images, posns, xPlace, yPlace, scene) {}
+
+/**
+ * Overlays all of its image arguments, much like the `overlay` function, but using `xPlace` and `yPlace` to determine where the images are lined up. For example, if `xPlace` and `yPlace` are both "middle", then the images are lined up on their centers.
+ * @param {string} xPlace - The x alignment of the image placement.
+ * @param {string} yPlace - The y alignment of the image placement.
+ * @param {...Image} images - The images to place into the scene.
+ * @returns {Image} - The resulting image.
+ */
+function overlayAlign(xPlace, yPlace, ...images) {}
+
+/**
+ * Constructs an image by overlaying i1 on top of i2. The images are initially lined up on their upper-left corners and then i2 is shifted to the right by x pixels and down by y pixels.
+ * @param {Image} i1 - The image to place into i2.
+ * @param {number} x - The x position to place i1.
+ * @param {number} y - The y position to place i1.
+ * @param {Image} i2 - The image to go under i1.
+ * @returns {Image} - The resulting image.
+ */
+function overlayXY(i1, x, y, i2) {}
+
+/**
+ * Overlays all of its arguments building a single image. The first argument goes on top of the second argument, which goes on top of the third argument, etc. The images are all lined up on their centers.
+ * @param {Image} i1 - The image to place on top.
+ * @param {Image} i2 - The image to go under i1.
+ * @param {...Image} is - The following sequence of images to place under i2.
+ * @returns {Image} - The resulting image.
+ */
+function overlay(i1, i2, ...is) {}
+
+/**
+ * Underlays all of its arguments building a single image.
+ * It behaves like overlay, but with the arguments in the reverse order. That is, the first argument goes underneath of the second argument, which goes underneath the third argument, etc. The images are all lined up on their centers.
+ * @param {Image} i1 - The image to place on the bottom.
+ * @param {Image} i2 - The image to go directly above i1.
+ * @param {...Image} is - The following sequence of images to place above i2.
+ * @returns {Image} - The resulting image.
+ */
+function underlay(i1, i2, ...is) {}
+
+/**
+ * Constructs an image by underlaying i1 underneath i2. The images are initially lined up on their upper-left corners and then i2 is shifted to the right by x pixels to and down by y pixels.
+ * @param {Image} i1 - The image to place below i2.
+ * @param {number} x - The x position to place i1.
+ * @param {number} y - The y position to place i1.
+ * @param {Image} i2 - The image to go above i1.
+ * @returns {Image} - The resulting image.
+ */
+function underlayXY(i1, x, y, i2) {}
+
+/**
+ * Constructs an image by placing all of the argument images in a vertical row, lined up as indicated by the `xPlace` argument. For example, if `xPlace` is "middle", then the images are placed above each other with their centers lined up.
+ * @param {string} xPlace - The alignment of the images on the x axis.
+ * @param {...Image} imgs - The images to align.
+ * @returns {Image} - The resulting image.
+ */
+function aboveAlign(xPlace, ...imgs) {}
+
+/**
+ * Constructs an image by placing all of the argument images in a vertical row, aligned along their centers.
+ * @param {...Image} is - The sequence of images to place on top of one another, with the lowest first and the highest last in the array.
+ * @returns {Image} - The resulting image.
+ */
+function above(...is) {}
+
+/**
+ * Constructs an image by placing all of the argument images in a horizontal row, lined up as indicated by the `yPlace` argument. For example, if `yPlace` is "middle", then the images are placed side by side with their centers lined up with each other.
+ * @param {string} yPlace - The alignment of the images on the y axis.
+ * @param {...Image} imgs - The images to align.
+ * @returns {Image} - The resulting image.
+ */
+function besideAlign(xPlace, ...imgs) {}
+
+/**
+ * Constructs an image by placing all of the argument images in a horizontal row, aligned along their centers.
+ * @param {...Image} is - The sequence of images to place on top of one another, with the leftmost first and the rightmost last in the array.
+ * @returns {Image} - The resulting image.
+ */
+function beside(...is) {}
