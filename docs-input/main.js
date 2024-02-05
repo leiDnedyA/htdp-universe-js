@@ -8,6 +8,8 @@
  *
  * */
 
+/** @module big-bang */
+
 /**
  * The representation of the current state in your world program.
  * @typedef {*} WorldState
@@ -20,6 +22,7 @@
 
 /** 
   * Starts a world program in the initial state defined by initWorld.
+  * @memberof big-bang
   * @param {WorldState} initWorld - The initial state for the world program to be run.
   * @param {...*} handlers - The event handlers for the given world
   */
@@ -174,6 +177,8 @@ function onKey(keyFunction) {}
  * @param {lastWorld} lastWorld - Determines whether program should end.
  */
 function stopWhen(lastWorld) {}
+
+/** @module image */
 
 /**
  * Returns an empty scene based on a given width, height, and color.
@@ -373,6 +378,8 @@ function besideAlign(xPlace, ...imgs) {}
  * @returns {Image} - The resulting image.
  */
 function beside(...is) {}
+
+/** @module posn */
 
 /**
  * Constructs a new `posn` at the given position.
