@@ -373,3 +373,25 @@ function besideAlign(xPlace, ...imgs) {}
  * @returns {Image} - The resulting image.
  */
 function beside(...is) {}
+
+/**
+ * Constructs a new `posn` at the given position.
+ * @param {number} x - The x position of the posn.
+ * @param {number} y - The y position of the posn.
+ * @returns {Posn} - The resulting posn.
+ */
+function posn(x, y) {}
+
+/**
+ * Returns the x position of a given Posn.
+ * @param {Posn} posn - The Posn to get the x position of.
+ * @returns {number} - The x position of `posn`.
+ */
+function posnX(posn) {}
+
+/**
+ * Returns the y position of a given Posn.
+ * @param {Posn} posn - The Posn to get the x position of.
+ * @returns {number} - The y position of `posn`.
+ */
+function posnY(posn) {}
