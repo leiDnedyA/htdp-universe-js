@@ -22,6 +22,15 @@ be drawn to the canvas.</p>
 world-producing callback. Returns <code>true</code> if the program should end, 
 and <code>false</code> otherwise.</p>
 </dd>
+<dt><a href="#emptyScene">emptyScene(width, height, [color])</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Returns an empty scene based on a given width, height, and color.</p>
+</dd>
+<dt><a href="#line">line(width, height, color)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Returns and image of a line.</p>
+</dd>
+<dt><a href="#rectangle">rectangle(width, height, mode, color)</a> ⇒ <code><a href="#Image">Image</a></code></dt>
+<dd><p>Returns and image of a rectangle.</p>
+</dd>
 </dl>
 
 ## Typedefs
@@ -190,6 +199,49 @@ and `false` otherwise.
 | Param | Type | Description |
 | --- | --- | --- |
 | lastWorld | [<code>lastWorld</code>](#lastWorld) | Determines whether program should end. |
+
+<a name="emptyScene"></a>
+
+## emptyScene(width, height, [color]) ⇒ [<code>Image</code>](#Image)
+Returns an empty scene based on a given width, height, and color.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The empty scene.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| width | <code>number</code> |  | The width. |
+| height | <code>number</code> |  | The height. |
+| [color] | <code>string</code> | <code>&quot;\&quot;white\&quot;&quot;</code> | The color. |
+
+<a name="line"></a>
+
+## line(width, height, color) ⇒ [<code>Image</code>](#Image)
+Returns and image of a line.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The line drawn.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| width | <code>number</code> | The width. |
+| height | <code>number</code> | The height. |
+| color | <code>string</code> | The color. |
+
+<a name="rectangle"></a>
+
+## rectangle(width, height, mode, color) ⇒ [<code>Image</code>](#Image)
+Returns and image of a rectangle.
+
+**Kind**: global function  
+**Returns**: [<code>Image</code>](#Image) - - The rectangle image.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| width | <code>number</code> | The width. |
+| height | <code>number</code> | The height. |
+| mode | <code>&quot;outline&quot;</code> \| <code>&quot;solid&quot;</code> | The outline mode. |
+| color | <code>string</code> | The color. |
 
 <a name="WorldState"></a>
 

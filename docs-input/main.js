@@ -174,3 +174,31 @@ function onKey(keyFunction) {}
  * @param {lastWorld} lastWorld - Determines whether program should end.
  */
 function stopWhen(lastWorld) {}
+
+/**
+ * Returns an empty scene based on a given width, height, and color.
+ * @param {number} width - The width.
+ * @param {number} height - The height.
+ * @param {string} [color="white"] - The color.
+ * @returns {Image} - The empty scene.
+ */
+function emptyScene(width, height, color="white") {}
+
+/**
+ * Returns and image of a line.
+ * @param {number} width - The width.
+ * @param {number} height - The height.
+ * @param {string} color - The color.
+ * @returns {Image} - The line drawn.
+ */
+function line(width, height, color) {}
+
+/**
+ * Returns and image of a rectangle.
+ * @param {number} width - The width.
+ * @param {number} height - The height.
+ * @param {"outline" | "solid"} mode - The outline mode.
+ * @param {string} color - The color.
+ * @returns {Image} - The rectangle image.
+ */
+function rectangle(width, height, mode, color) {}
